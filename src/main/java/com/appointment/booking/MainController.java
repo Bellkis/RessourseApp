@@ -1,14 +1,30 @@
 package com.appointment.booking;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-public class HelloController {
+public class MainController {
     @FXML
-    private Label welcomeText;
+    private VBox pnItems = null;
+    @FXML
+    private Button btnPersons;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private Pane pnlCustomer;
+
+    @FXML
+    private Pane pnlOrders;
+
+    @FXML
+    private Pane pnlOverview;
+
+    @FXML
+    private Pane pnlMenus;
+
+    public void handleClicks(ActionEvent actionEvent) {
+
     }
 }

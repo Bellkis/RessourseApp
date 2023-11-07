@@ -5,27 +5,34 @@ import com.appointment.booking.utils.Alerts;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class HelloApplication extends Application {
+public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
         if (Database.isOK()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
+            Parent root = FXMLLoader.load(MainApplication.class.getResource("home.fxml"));
+            stage.setScene(new Scene(root));
+            //set stage borderless
+            stage.initStyle(StageStyle.UNDECORATED);
+
+            //drag it here
+            root.setOnMousePressed(event -> {
+//                x = event.getSceneX();
+//                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+
+//                stage.setX(event.getScreenX() - x);
+//                stage.setY(event.getScreenY() - y);
+
+            });
             stage.show();
         } else {
             Alerts.error(

@@ -1,4 +1,6 @@
 module com.appointment.booking {
+    requires java.sql;
+    requires org.xerial.sqlitejdbc;
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -8,4 +10,7 @@ module com.appointment.booking {
 
     opens com.appointment.booking to javafx.fxml;
     exports com.appointment.booking;
+    exports com.appointment.booking.controllers;
+    exports com.appointment.booking.models;
+
 }

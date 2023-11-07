@@ -1,4 +1,4 @@
-package models;
+package com.appointment.booking.models;
 
 public class Room {
     private int id;

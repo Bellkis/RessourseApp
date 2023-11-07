@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Region?>
+
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.appointment.booking.controllers.GuestsController">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+    </padding>
+    <children>
+        <HBox spacing="10">
+
+            <Label layoutX="57.0" layoutY="25.0" text="Guests" textFill="#e7e5e5">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField
+                    fx:id="searchPersons"
+                    layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0"
+                    promptText="search"
+
+                    style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;"/>
+        </HBox>
+        <HBox layoutX="45.0" layoutY="72.0" prefHeight="92.0" prefWidth="661.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="200.0">
+                    <children>
+                        <Label fx:id="totalGuests" text="0" textFill="#2a73ff">
+                            <font>
+                                <Font name="System Bold" size="26.0"/>
+                            </font>
+                        </Label>
+                        <Label text="Total Guests" textFill="#e7e5e5"/>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox alignment="CENTER" prefHeight="200.0">
+                    <Button text="Add new guest"
+                            onAction="#handleAddGuest"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: #ffffff; -fx-font-size: 14px;"/>
+                </VBox>
+            </children>
+        </HBox>
+
+        <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="746.0"
+                    stylesheets="@style.css">
+            <content>
+                <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="744.0" spacing="5.0"
+                      style="-fx-background-color: #02030A;">
+
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>
+
+

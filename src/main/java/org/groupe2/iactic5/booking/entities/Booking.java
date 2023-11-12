@@ -1,14 +1,20 @@
 package org.groupe2.iactic5.booking.entities;
 
+import org.groupe2.iactic5.person.entities.Person;
 import org.groupe2.iactic5.room.entities.Room;
+import org.groupe2.iactic5.timeslot.entities.TimeSlot;
 
 public class Booking {
     private long id;
     private Room room;
+    private Person person;
+    private TimeSlot timeSlot;
 
-    public Booking(long id, Room room) {
+    public Booking(long id, Person person, Room room, TimeSlot timeSlot) {
         this.id = id;
         this.room = room;
+        this.timeSlot = timeSlot;
+        this.person = person;
     }
 
     public long getId() {
@@ -25,6 +31,22 @@ public class Booking {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public TimeSlot getTimeSlot() {
+        return timeSlot;
+    }
+
+    public void setTimeSlot(TimeSlot timeSlot) {
+        this.timeSlot = timeSlot;
     }
 
 }

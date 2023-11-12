@@ -1,20 +1,20 @@
-package org.groupe2.iactic5.room.entities;
+package org.groupe2.iactic5.person.entities;
 
-public class Room {
+public class Person {
 
-    private long id;
+    private Long id;
     private String name;
 
-    public Room(long id, String name) {
+    public Person(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

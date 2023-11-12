@@ -38,7 +38,7 @@ public class PersonServices implements PersonServicesInterface {
     @Override
     public void displayPersons() {
         Map<Long, Person> personsMap = personRepositoryInterface.getAllPersons();
-        System.out.println("Persons Map:");
+        System.out.println("\nPersons Map:");
         for (Map.Entry<Long, Person> entry : personsMap.entrySet()) {
             Person person = entry.getValue();
             System.out.println("Person ID: " + person.getId() + ", Name: " + person.getName());

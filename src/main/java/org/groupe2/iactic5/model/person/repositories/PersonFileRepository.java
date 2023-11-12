@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.util.logging.Logger;
 
 import org.groupe2.iactic5.model.person.entities.Person;
 
@@ -21,7 +20,6 @@ public class PersonFileRepository implements PersonRepositoryInterface {
 
     private static final String FILE_NAME = "persons.txt";
     private Map<Long, Person> personsMap;
-    Logger logger = Logger.getLogger(getClass().getName());
 
     public PersonFileRepository() {
         this.personsMap = loadPersonsFromFile();
@@ -41,7 +39,7 @@ public class PersonFileRepository implements PersonRepositoryInterface {
         Person deletedPerson = personsMap.remove(personId);
         if (deletedPerson != null) {
             savePersonsToFile();
-            System.out.println("Personne supprimée : " + deletedPerson.getName());
+            System.out.println("Personne " + deletedPerson.getId() + " supprimée : " + deletedPerson.getName());
         } else {
             System.out.println("Personne non trouvée avec l'ID : " + personId);
         }

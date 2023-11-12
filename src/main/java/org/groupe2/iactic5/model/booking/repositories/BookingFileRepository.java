@@ -12,7 +12,6 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.groupe2.iactic5.model.booking.entities.Booking;
 import org.groupe2.iactic5.model.person.exceptions.PersonNotFoundException;
@@ -29,7 +28,6 @@ public class BookingFileRepository implements BookingRepositoryInterface {
     private RoomServicesInterface roomServicesInterface;
     private TimeSlotServicesInterface timeSlotServicesInterface;
     private Map<Long, Booking> bookingsMap;
-    Logger logger = Logger.getLogger(getClass().getName());
 
     public BookingFileRepository(PersonServicesInterface personServicesInterface,
             RoomServicesInterface roomServicesInterface, TimeSlotServicesInterface timeSlotServicesInterface) {

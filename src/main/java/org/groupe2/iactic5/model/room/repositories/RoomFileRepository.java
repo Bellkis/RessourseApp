@@ -12,7 +12,6 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.groupe2.iactic5.model.room.entities.Room;
 
@@ -20,8 +19,6 @@ public class RoomFileRepository implements RoomRepositoryInterface {
 
     private static final String FILE_NAME = "rooms.txt";
     private Map<Long, Room> roomsMap;
-
-    Logger logger = Logger.getLogger(getClass().getName());
 
     public RoomFileRepository() {
         this.roomsMap = loadRoomsFromFile();
@@ -32,7 +29,7 @@ public class RoomFileRepository implements RoomRepositoryInterface {
     public void saveRoom(Room room) {
         roomsMap.put(room.getId(), room);
         saveRoomsToFile();
-        logger.info("Salle créée : " + room.getName());
+        System.out.println("Salle "  + room.getId() + " créée : " + room.getName());
     }
 
     @Override
@@ -41,9 +38,9 @@ public class RoomFileRepository implements RoomRepositoryInterface {
         Room deletedRoom = roomsMap.remove(roomId);
         if (deletedRoom != null) {
             saveRoomsToFile();
-            logger.info("Salle supprimée : " + deletedRoom.getName());
+            System.out.println("Salle " + deletedRoom.getId() + " supprimée : " + deletedRoom.getName());
         } else {
-            logger.info("Salle non trouvée avec l'ID : " + roomId);
+            System.err.println("Salle non trouvée avec l'ID : " + roomId);
         }
     }
 
@@ -76,7 +73,7 @@ public class RoomFileRepository implements RoomRepositoryInterface {
                 }
 
             } catch (URISyntaxException e) {
-                logger.info("Error lors de la resolution de : " + FILE_NAME);
+                System.err.println("Error lors de la resolution de : " + FILE_NAME);
             }
 
         }
@@ -104,7 +101,7 @@ public class RoomFileRepository implements RoomRepositoryInterface {
                 e.printStackTrace();
             }
         } else {
-            logger.info("Le fichier " + FILE_NAME
+            System.out.println("Le fichier " + FILE_NAME
                     + " n'a pas été trouvé dans les ressources. Création du fichier avec un exemple de contenu...");
             createExampleRoomFile();
             return loadRoomsFromFile();

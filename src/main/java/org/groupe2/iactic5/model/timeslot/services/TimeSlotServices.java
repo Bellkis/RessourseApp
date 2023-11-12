@@ -19,6 +19,8 @@ public class TimeSlotServices implements TimeSlotServicesInterface {
     public void createTimeSlot(TimeSlot timeSlot) {
         try {
             // Tente d'enregistrer le créneau temporel
+
+            // verifie si le les dates correspondent
             timeSlot.isValid();
             timeSlotRepositoryInterface.saveTimeSlot(timeSlot);
 
@@ -48,7 +50,7 @@ public class TimeSlotServices implements TimeSlotServicesInterface {
     @Override
     public void displayTimeSlots() {
         Map<Long, TimeSlot> timeSlotsMap = timeSlotRepositoryInterface.getAllTimeSlots();
-        System.out.println("TimeSlots Map:");
+        System.out.println("\nTimeSlots Map:");
         for (Map.Entry<Long, TimeSlot> entry : timeSlotsMap.entrySet()) {
             TimeSlot timeSlot = entry.getValue();
             System.out.println("TimeSlot ID: " + timeSlot.getId() +

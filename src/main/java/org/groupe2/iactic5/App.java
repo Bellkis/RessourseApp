@@ -64,9 +64,9 @@ public class App {
 
                 System.out.println("**************************************************");
 
-                /************************************************
-                 * Test Room
-                 ************************************************/
+                // /************************************************
+                //  * Test Room
+                //  ************************************************/
 
                 RoomRepositoryInterface roomRepositoryInterface = new RoomFileRepository();
                 RoomServicesInterface roomServicesInterface = new RoomServices(roomRepositoryInterface);
@@ -100,9 +100,9 @@ public class App {
 
                 System.out.println("**************************************************");
 
-                /************************************************
-                 * Test TimeSlot
-                 ************************************************/
+                // /************************************************
+                //  * Test TimeSlot
+                //  ************************************************/
 
                 // Utiliser une implémentation de repository pour TimeSlot
                 TimeSlotRepositoryInterface timeSlotRepositoryInterface = new TimeSlotFileRepository();
@@ -134,7 +134,7 @@ public class App {
 
                 try {
 
-                        timeSlotServicesInterface.getTimeSlotById(4);
+                        timeSlotServicesInterface.getTimeSlotById(3);
 
                 } catch (TimeSlotNotFoundException e) {
                         System.err.println("Err " + e.getMessage());
@@ -142,9 +142,9 @@ public class App {
 
                 System.out.println("**************************************************");
 
-                /************************************************
-                 * Test Booking
-                 ************************************************/
+                // /************************************************
+                //  * Test Booking
+                //  ************************************************/
 
                 BookingServicesInterface bookingServicesInterface = new BookingServices(
                                 new BookingFileRepository(personServicesInterface, roomServicesInterface,
@@ -164,7 +164,7 @@ public class App {
                 bookingServicesInterface.displayBookings();
 
                 TimeSlot timeSlot5 = new TimeSlot(5L, LocalDateTime.of(2023, 11, 20, 13, 0),
-                                LocalDateTime.of(2023, 11, 30, 16, 0));
+                                LocalDateTime.of(2023, 11, 21, 16, 0));
 
                 bookingServicesInterface.updateBooking(1, timeSlot5);
 
@@ -174,10 +174,10 @@ public class App {
 
                 bookingServicesInterface.displayBookings();
 
-                TimeSlot timeSlot6 = new TimeSlot(4L, LocalDateTime.of(2023, 11, 15, 11, 0),
-                                LocalDateTime.of(2023, 11, 11, 15, 0));
+                TimeSlot timeSlot6 = new TimeSlot(6L, LocalDateTime.of(2023, 11, 21, 11, 0),
+                                LocalDateTime.of(2023, 11, 22, 15, 0));
 
-                Booking booking4 = new Booking(4L, person4, room1, timeSlot6);
+                Booking booking4 = new Booking(4L, person2, room2, timeSlot6);
                 bookingServicesInterface.createBooking(booking4);
 
                 bookingServicesInterface.displayBookings();
@@ -189,7 +189,7 @@ public class App {
                 }
 
                 bookingServicesInterface.createManyBookings(4, person1, room4,
-                                Arrays.asList(timeSlot1, timeSlot1, timeSlot3));
+                                Arrays.asList(timeSlot1, timeSlot2, timeSlot3));
 
                 bookingServicesInterface.displayBookings();
 

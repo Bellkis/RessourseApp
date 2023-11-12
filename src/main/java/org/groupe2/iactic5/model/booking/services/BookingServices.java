@@ -25,6 +25,8 @@ public class BookingServices implements BookingServicesInterface {
     public void createBooking(Booking booking) {
 
         try {
+
+            booking.getTimeSlot().isValid() ;
             // Valider la disponibilité de la salle
             validateRoomAvailability(booking.getRoom(), booking.getTimeSlot());
 
@@ -35,7 +37,7 @@ public class BookingServices implements BookingServicesInterface {
             bookingRepositoryInterface.saveBooking(booking);
 
             // Si nous arrivons ici, la réservation a été créée avec succès
-        } catch (RoomUnavailableException | PersonUnavailableException e) {
+        } catch (RoomUnavailableException | PersonUnavailableException | InvalidTimeSlotException e)  {
             System.out.println("Erreur : " + e.getMessage());
         }
     }
@@ -43,26 +45,6 @@ public class BookingServices implements BookingServicesInterface {
     @Override
     public void createManyBookings(long id, Person person, Room room, List<TimeSlot> timeSlots) {
         // Vérifier les conditions pour chaque créneau horaire
-
-        // for (TimeSlot timeSlot : timeSlots) {
-
-        //     try {
-        //         System.out.println("Timeslot :  " + timeSlot.getId());
-
-        //         // Valider la disponibilité de la salle
-        //         validateRoomAvailability(room, timeSlot);
-
-        //         // Valider la disponibilité de la personne
-        //         validatePersonAvailability(person, timeSlot);
-
-        //         // Si nous arrivons ici, la réservation a été créée avec succès
-        //     } catch (RoomUnavailableException | PersonUnavailableException | InvalidTimeSlotException e) {
-        //         System.out.println("Erreur : " + e.getMessage());
-        //         return;
-        //     }
-        // }
-
-        // Si toutes les vérifications sont réussies, créer la réservation
         int i = 0;
         for (TimeSlot timeSlot : timeSlots) {
 
@@ -77,13 +59,10 @@ public class BookingServices implements BookingServicesInterface {
 
                 Booking newBooking = new Booking(id + i, person, room, timeSlot);
                 bookingRepositoryInterface.saveBooking(newBooking);
-                // Vous pouvez également sauvegarder les réservations dans un fichier ou une
-                // base de données si nécessaire
                 i++;
-                System.out.println("Réservation créée avec succès : " + newBooking.getId());
             }
 
-             catch (RoomUnavailableException | PersonUnavailableException | InvalidTimeSlotException e) {
+            catch (RoomUnavailableException | PersonUnavailableException | InvalidTimeSlotException e) {
                 System.out.println("Erreur : " + e.getMessage());
                 return;
             }
@@ -104,10 +83,10 @@ public class BookingServices implements BookingServicesInterface {
             Booking oldBooking = getBookingById(bookingId);
 
             // Valider la disponibilité de la salle
-            validateRoomAvailability(oldBooking.getRoom(), oldBooking.getTimeSlot());
+            validateRoomAvailability(oldBooking.getRoom(), timeSlot);
 
             // Valider la disponibilité de la personne
-            validatePersonAvailability(oldBooking.getPerson(), oldBooking.getTimeSlot());
+            validatePersonAvailability(oldBooking.getPerson(), timeSlot);
 
             // Si toutes les vérifications sont réussies, mettre à jour la réservation
             Booking booking = getBookingById(bookingId);
@@ -133,7 +112,7 @@ public class BookingServices implements BookingServicesInterface {
     @Override
     public void displayBookings() {
         Map<Long, Booking> bookingsMap = bookingRepositoryInterface.getAllBookings();
-        System.out.println("Bookings Map:");
+        System.out.println("\nBookings Map:");
         for (Map.Entry<Long, Booking> entry : bookingsMap.entrySet()) {
             Booking booking = entry.getValue();
             System.out.println("Booking ID: " + booking.getId() +
@@ -180,14 +159,16 @@ public class BookingServices implements BookingServicesInterface {
 
     private void validateRoomAvailability(Room room, TimeSlot timeSlot) {
         if (!isRoomAvailable(room, timeSlot)) {
-            throw new RoomUnavailableException("La salle " + room.getId() + " n'est pas disponible pendant ce créneau."
-                    + timeSlot.getStartTime() + " à " + timeSlot.getEndTime());
+            throw new RoomUnavailableException("La salle " + room.getId() + " n'est pas disponible pendant le créneau "
+                    + timeSlot.getStartTime() + " à " + timeSlot.getEndTime() + " d'ID " + timeSlot.getId());
         }
     }
 
     private void validatePersonAvailability(Person person, TimeSlot timeSlot) {
         if (!isPersonAvailable(person, timeSlot)) {
-            throw new PersonUnavailableException("La personne n'est pas disponible pendant ce créneau.");
+            throw new PersonUnavailableException(
+                    "La personne " + person.getId() + " n'est pas disponible pendant le créneau "
+                            + timeSlot.getStartTime() + " à " + timeSlot.getEndTime() + " d'ID " + timeSlot.getId());
         }
     }
 

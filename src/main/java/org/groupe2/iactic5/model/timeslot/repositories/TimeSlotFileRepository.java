@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.groupe2.iactic5.model.timeslot.entities.TimeSlot;
 
@@ -21,7 +20,6 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
 
     private static final String FILE_NAME = "timeslots.txt";
     private Map<Long, TimeSlot> timeSlotsMap;
-    Logger logger = Logger.getLogger(getClass().getName());
 
     public TimeSlotFileRepository() {
         this.timeSlotsMap = loadTimeSlotsFromFile();
@@ -31,7 +29,7 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
     public void saveTimeSlot(TimeSlot timeSlot) {
         timeSlotsMap.put(timeSlot.getId(), timeSlot);
         saveTimeSlotsToFile();
-        logger.info("Créneau horaire créé : " + timeSlot.getStartTime() + ", " + timeSlot.getEndTime());
+        System.out.println("Créneau horaire " + timeSlot.getId() + " créé : " + timeSlot.getStartTime() + ", " + timeSlot.getEndTime());
     }
 
     @Override
@@ -39,10 +37,10 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
         TimeSlot deletedTimeSlot = timeSlotsMap.remove(timeSlotId);
         if (deletedTimeSlot != null) {
             saveTimeSlotsToFile();
-            logger.info("Créneau horaire supprimé : " + deletedTimeSlot.getStartTime() + ", "
+            System.out.println("Créneau horaire " + deletedTimeSlot.getId() + " supprimé : " + deletedTimeSlot.getId() + ", " + deletedTimeSlot.getStartTime() + ", "
                     + deletedTimeSlot.getEndTime());
         } else {
-            logger.info("Créneau horaire non trouvé avec l'ID : " + timeSlotId);
+            System.err.println("Créneau horaire non trouvé avec l'ID : " + timeSlotId);
         }
     }
 
@@ -74,7 +72,7 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
                 }
 
             } catch (URISyntaxException e) {
-                logger.info("Erreur lors de la résolution de : " + FILE_NAME);
+                System.err.println("Erreur lors de la résolution de : " + FILE_NAME);
             }
         }
     }
@@ -100,7 +98,7 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
                 e.printStackTrace();
             }
         } else {
-            logger.info("Le fichier " + FILE_NAME
+            System.err.println("Le fichier " + FILE_NAME
                     + " n'a pas été trouvé dans les ressources. Création du fichier avec un exemple de contenu...");
             createExampleTimeSlotFile();
             return loadTimeSlotsFromFile();

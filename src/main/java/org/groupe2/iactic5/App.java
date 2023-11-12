@@ -1,29 +1,26 @@
 package org.groupe2.iactic5;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Map;
 
-import org.groupe2.iactic5.booking.entities.Booking;
-import org.groupe2.iactic5.booking.repositories.BookingFileRepository;
-import org.groupe2.iactic5.booking.repositories.BookingRepositoryInterface;
-import org.groupe2.iactic5.booking.services.BookingServices;
-import org.groupe2.iactic5.booking.services.BookingServicesInterface;
-import org.groupe2.iactic5.person.entities.Person;
-import org.groupe2.iactic5.person.repositories.PersonFileRepository;
-import org.groupe2.iactic5.person.repositories.PersonRepositoryInterface;
-import org.groupe2.iactic5.person.service.PersonServices;
-import org.groupe2.iactic5.person.service.PersonServicesInterface;
-import org.groupe2.iactic5.room.entities.Room;
-import org.groupe2.iactic5.room.repositories.RoomFileRepository;
-import org.groupe2.iactic5.room.repositories.RoomRepositoryInterface;
-import org.groupe2.iactic5.room.services.RoomServices;
-import org.groupe2.iactic5.room.services.RoomServicesInterface;
-import org.groupe2.iactic5.timeslot.entities.TimeSlot;
-import org.groupe2.iactic5.timeslot.repositories.TimeSlotFileRepository;
-import org.groupe2.iactic5.timeslot.repositories.TimeSlotRepositoryInterface;
-import org.groupe2.iactic5.timeslot.services.TimeSlotServices;
-import org.groupe2.iactic5.timeslot.services.TimeSlotServicesInterface;
+import org.groupe2.iactic5.model.booking.entities.Booking;
+import org.groupe2.iactic5.model.booking.repositories.BookingFileRepository;
+import org.groupe2.iactic5.model.booking.services.BookingServices;
+import org.groupe2.iactic5.model.booking.services.BookingServicesInterface;
+import org.groupe2.iactic5.model.person.entities.Person;
+import org.groupe2.iactic5.model.person.repositories.PersonFileRepository;
+import org.groupe2.iactic5.model.person.repositories.PersonRepositoryInterface;
+import org.groupe2.iactic5.model.person.service.PersonServices;
+import org.groupe2.iactic5.model.person.service.PersonServicesInterface;
+import org.groupe2.iactic5.model.room.entities.Room;
+import org.groupe2.iactic5.model.room.repositories.RoomFileRepository;
+import org.groupe2.iactic5.model.room.repositories.RoomRepositoryInterface;
+import org.groupe2.iactic5.model.room.services.RoomServices;
+import org.groupe2.iactic5.model.room.services.RoomServicesInterface;
+import org.groupe2.iactic5.model.timeslot.entities.TimeSlot;
+import org.groupe2.iactic5.model.timeslot.repositories.TimeSlotFileRepository;
+import org.groupe2.iactic5.model.timeslot.repositories.TimeSlotRepositoryInterface;
+import org.groupe2.iactic5.model.timeslot.services.TimeSlotServices;
+import org.groupe2.iactic5.model.timeslot.services.TimeSlotServicesInterface;
 
 public class App {
         public static void main(String[] args) {

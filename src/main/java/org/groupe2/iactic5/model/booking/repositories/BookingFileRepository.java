@@ -9,13 +9,17 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import org.groupe2.iactic5.model.booking.entities.Booking;
+import org.groupe2.iactic5.model.person.exceptions.PersonNotFoundException;
 import org.groupe2.iactic5.model.person.service.PersonServicesInterface;
+import org.groupe2.iactic5.model.room.exceptions.RoomNotFoundException;
 import org.groupe2.iactic5.model.room.services.RoomServicesInterface;
+import org.groupe2.iactic5.model.timeslot.exceptions.TimeSlotNotFoundException;
 import org.groupe2.iactic5.model.timeslot.services.TimeSlotServicesInterface;
 
 public class BookingFileRepository implements BookingRepositoryInterface {
@@ -40,7 +44,7 @@ public class BookingFileRepository implements BookingRepositoryInterface {
     public void saveBooking(Booking booking) {
         bookingsMap.put(booking.getId(), booking);
         saveBookingsToFile();
-        logger.info("Réservation créée : " + booking.getId());
+        System.out.println("Réservation créée : " + booking.getId());
     }
 
     @Override
@@ -49,9 +53,9 @@ public class BookingFileRepository implements BookingRepositoryInterface {
         Booking deletedBooking = bookingsMap.remove(bookingId);
         if (deletedBooking != null) {
             saveBookingsToFile();
-            logger.info("Réservation supprimée : " + deletedBooking.getId());
+            System.out.println("Réservation supprimée : " + deletedBooking.getId());
         } else {
-            logger.info("Réservation non trouvée avec l'ID : " + bookingId);
+            System.out.println("Réservation non trouvée avec l'ID : " + bookingId);
         }
     }
 
@@ -93,7 +97,7 @@ public class BookingFileRepository implements BookingRepositoryInterface {
                 }
 
             } catch (URISyntaxException e) {
-                logger.info("Error lors de la resolution de : " + FILE_NAME);
+                e.printStackTrace();
             }
 
         }
@@ -121,14 +125,13 @@ public class BookingFileRepository implements BookingRepositoryInterface {
                     bookingMap.put(id, booking);
                 }
 
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException | PersonNotFoundException | RoomNotFoundException | TimeSlotNotFoundException e) {
+                System.err.println("Erreur : " + e.getMessage());
             }
         } else {
-            logger.info("Le fichier " + FILE_NAME
+            System.out.println("Le fichier " + FILE_NAME
                     + " n'a pas été trouvé dans les ressources. Création du fichier avec un exemple de contenu...");
             createExampleBookingFile();
-            return loadBookingsFromFile();
         }
 
         return bookingMap;
@@ -141,23 +144,18 @@ public class BookingFileRepository implements BookingRepositoryInterface {
             if (resource == null) {
                 throw new IllegalStateException("Répertoire de ressources introuvable.");
             }
-
+        
             // Crée le chemin complet du fichier dans le répertoire de ressources
             Path filePath = Paths.get(resource.toURI()).resolve(FILE_NAME);
-
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toFile()))) {
-                // Exemple de contenu du fichier pour les réservations
-                writer.write("-1,-1,-1,-1");
-                writer.newLine();
-                writer.write("-2,-2,-2,-2");
-                writer.newLine();
-
-                logger.info("Le fichier bookings.txt a été créé avec succès à l'emplacement : " + filePath);
-            }
-
+        
+            // Crée le fichier sans écrire de contenu
+            Files.createFile(filePath);
+        
+            System.out.println("Le fichier bookings.txt a été créé avec succès à l'emplacement : " + filePath);
+        
         } catch (IOException | URISyntaxException e) {
-            logger.info("Erreur lors de la création du fichier bookings.txt");
-        }
+           System.err.println("Erreur lors de la création du fichier bookings.txt");
+        }        
     }
 
 }

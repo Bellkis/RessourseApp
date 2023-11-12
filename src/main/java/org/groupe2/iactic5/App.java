@@ -1,22 +1,27 @@
 package org.groupe2.iactic5;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import org.groupe2.iactic5.model.booking.entities.Booking;
+import org.groupe2.iactic5.model.booking.exceptions.BookingNotFoundException;
 import org.groupe2.iactic5.model.booking.repositories.BookingFileRepository;
 import org.groupe2.iactic5.model.booking.services.BookingServices;
 import org.groupe2.iactic5.model.booking.services.BookingServicesInterface;
 import org.groupe2.iactic5.model.person.entities.Person;
+import org.groupe2.iactic5.model.person.exceptions.PersonNotFoundException;
 import org.groupe2.iactic5.model.person.repositories.PersonFileRepository;
 import org.groupe2.iactic5.model.person.repositories.PersonRepositoryInterface;
 import org.groupe2.iactic5.model.person.service.PersonServices;
 import org.groupe2.iactic5.model.person.service.PersonServicesInterface;
 import org.groupe2.iactic5.model.room.entities.Room;
+import org.groupe2.iactic5.model.room.exceptions.RoomNotFoundException;
 import org.groupe2.iactic5.model.room.repositories.RoomFileRepository;
 import org.groupe2.iactic5.model.room.repositories.RoomRepositoryInterface;
 import org.groupe2.iactic5.model.room.services.RoomServices;
 import org.groupe2.iactic5.model.room.services.RoomServicesInterface;
 import org.groupe2.iactic5.model.timeslot.entities.TimeSlot;
+import org.groupe2.iactic5.model.timeslot.exceptions.TimeSlotNotFoundException;
 import org.groupe2.iactic5.model.timeslot.repositories.TimeSlotFileRepository;
 import org.groupe2.iactic5.model.timeslot.repositories.TimeSlotRepositoryInterface;
 import org.groupe2.iactic5.model.timeslot.services.TimeSlotServices;
@@ -49,6 +54,16 @@ public class App {
 
                 personServicesInterface.displayPersons();
 
+                try {
+
+                        personServicesInterface.getPersonById(4);
+
+                } catch (PersonNotFoundException e) {
+                        System.err.println("Err " + e.getMessage());
+                }
+
+                System.out.println("**************************************************");
+
                 /************************************************
                  * Test Room
                  ************************************************/
@@ -75,6 +90,16 @@ public class App {
 
                 roomServicesInterface.displayRooms();
 
+                try {
+
+                        roomServicesInterface.getRoomById(4);
+
+                } catch (RoomNotFoundException e) {
+                        System.err.println("Err " + e.getMessage());
+                }
+
+                System.out.println("**************************************************");
+
                 /************************************************
                  * Test TimeSlot
                  ************************************************/
@@ -89,11 +114,11 @@ public class App {
                 TimeSlot timeSlot1 = new TimeSlot(1L, LocalDateTime.of(2023, 11, 15, 10, 0),
                                 LocalDateTime.of(2023, 11, 15, 12, 0));
                 TimeSlot timeSlot2 = new TimeSlot(2L, LocalDateTime.of(2023, 11, 16, 14, 30),
-                                LocalDateTime.of(2023, 11, 16, 16, 30));
+                                LocalDateTime.of(2023, 11, 16, 17, 30));
                 TimeSlot timeSlot3 = new TimeSlot(3L, LocalDateTime.of(2023, 11, 17, 15, 30),
                                 LocalDateTime.of(2023, 11, 17, 18, 30));
                 TimeSlot timeSlot4 = new TimeSlot(4L, LocalDateTime.of(2023, 11, 18, 17, 30),
-                                LocalDateTime.of(2023, 11, 18, 20, 30));
+                                LocalDateTime.of(2023, 11, 15, 20, 30));
 
                 // Ajout des TimeSlots à la repository
                 timeSlotServicesInterface.createTimeSlot(timeSlot1);
@@ -106,6 +131,16 @@ public class App {
                 timeSlotServicesInterface.deleteTimeSlot(4);
 
                 timeSlotServicesInterface.displayTimeSlots();
+
+                try {
+
+                        timeSlotServicesInterface.getTimeSlotById(4);
+
+                } catch (TimeSlotNotFoundException e) {
+                        System.err.println("Err " + e.getMessage());
+                }
+
+                System.out.println("**************************************************");
 
                 /************************************************
                  * Test Booking
@@ -128,7 +163,7 @@ public class App {
 
                 bookingServicesInterface.displayBookings();
 
-                TimeSlot timeSlot5 = new TimeSlot(5L, LocalDateTime.of(2023, 12, 20, 13, 0),
+                TimeSlot timeSlot5 = new TimeSlot(5L, LocalDateTime.of(2023, 11, 20, 13, 0),
                                 LocalDateTime.of(2023, 11, 30, 16, 0));
 
                 bookingServicesInterface.updateBooking(1, timeSlot5);
@@ -144,6 +179,17 @@ public class App {
 
                 Booking booking4 = new Booking(4L, person4, room1, timeSlot6);
                 bookingServicesInterface.createBooking(booking4);
+
+                bookingServicesInterface.displayBookings();
+
+                try {
+                        bookingServicesInterface.getBookingById(3);
+                } catch (BookingNotFoundException e) {
+                        System.err.println("Err " + e.getMessage());
+                }
+
+                bookingServicesInterface.createManyBookings(4, person1, room4,
+                                Arrays.asList(timeSlot1, timeSlot1, timeSlot3));
 
                 bookingServicesInterface.displayBookings();
 

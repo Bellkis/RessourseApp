@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,17 +120,13 @@ public class TimeSlotFileRepository implements TimeSlotRepositoryInterface {
             // Crée le chemin complet du fichier dans le répertoire de ressources
             Path filePath = Paths.get(resource.toURI()).resolve(FILE_NAME);
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toFile()))) {
-                // Exemple de contenu du fichier pour les créneaux horaires
-                writer.write("-1,2023-11-15T10:00:00,2023-11-15T12:00:00");
-                writer.newLine();
-                writer.write("-2,2023-11-16T14:30:00,2023-11-16T16:30:00");
+            // Crée le fichier sans écrire de contenu
+            Files.createFile(filePath);
 
-                logger.info("Le fichier timeslots.txt a été créé avec succès à l'emplacement : " + filePath);
-            }
+            System.out.println("Le fichier bookings.txt a été créé avec succès à l'emplacement : " + filePath);
 
         } catch (IOException | URISyntaxException e) {
-            logger.info("Erreur lors de la création du fichier timeslots.txt");
+            System.err.println("Erreur lors de la création du fichier bookings.txt");
         }
     }
 

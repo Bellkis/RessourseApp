@@ -2,6 +2,8 @@ package org.groupe2.iactic5.model.timeslot.entities;
 
 import java.time.LocalDateTime;
 
+import org.groupe2.iactic5.model.timeslot.exceptions.InvalidTimeSlotException;
+
 public class TimeSlot {
 
     private long id;
@@ -14,11 +16,19 @@ public class TimeSlot {
         this.endTime = endTime;
     }
 
+    // Vérifie si le créneau temporel est valide, c'est-à-dire si startTime commence avant endTime.
+    public boolean isValid() {
+        if (startTime.isAfter(endTime)) {
+            throw new InvalidTimeSlotException("Heure de debut inférieure à l'heure de fin");
+        }
+        return true;
+    }
+
     // Méthode pour vérifier si deux TimeSlot se chevauchent
     public boolean overlapsWith(TimeSlot other) {
         // Si l'une des périodes commence après que l'autre se termine, elles ne se
         // chevauchent pas
-        return this.getEndTime().isBefore(other.getStartTime()) || other.getEndTime().isBefore(this.getStartTime());
+        return !(this.getEndTime().isBefore(other.getStartTime()) || other.getEndTime().isBefore(this.getStartTime()));
     }
 
     public long getId() {

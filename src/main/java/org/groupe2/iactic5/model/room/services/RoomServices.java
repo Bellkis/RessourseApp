@@ -3,6 +3,7 @@ package org.groupe2.iactic5.model.room.services;
 import java.util.Map;
 
 import org.groupe2.iactic5.model.room.entities.Room;
+import org.groupe2.iactic5.model.room.exceptions.RoomNotFoundException;
 import org.groupe2.iactic5.model.room.repositories.RoomRepositoryInterface;
 
 public class RoomServices implements RoomServicesInterface {
@@ -25,7 +26,13 @@ public class RoomServices implements RoomServicesInterface {
 
     @Override
     public Room getRoomById(long roomId) {
-        return roomRepositoryInterface.getRoomById(roomId);
+        Room room = roomRepositoryInterface.getRoomById(roomId);
+
+        if (room == null) {
+            throw new RoomNotFoundException("Aucune salle trouvée avec l'ID : " + roomId);
+        }
+
+        return room;
     }
 
     @Override
@@ -37,6 +44,11 @@ public class RoomServices implements RoomServicesInterface {
             System.out.println("Room ID: " + room.getId() + ", Name: " + room.getName());
         }
         System.out.println();
-        
+
+    }
+
+    @Override
+    public Map<Long, Room> getAllRooms() {
+        return roomRepositoryInterface.getAllRooms();
     }
 }

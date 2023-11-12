@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class PersonFileRepository implements PersonRepositoryInterface {
     public void savePerson(Person person) {
         personsMap.put(person.getId(), person);
         savePersonsToFile();
-        logger.info("Personne créée : " + person.getName());
+        System.out.println("Personne créée : " + person.getName());
     }
 
     @Override
@@ -40,9 +41,9 @@ public class PersonFileRepository implements PersonRepositoryInterface {
         Person deletedPerson = personsMap.remove(personId);
         if (deletedPerson != null) {
             savePersonsToFile();
-            logger.info("Personne supprimée : " + deletedPerson.getName());
+            System.out.println("Personne supprimée : " + deletedPerson.getName());
         } else {
-            logger.info("Personne non trouvée avec l'ID : " + personId);
+            System.out.println("Personne non trouvée avec l'ID : " + personId);
         }
     }
 
@@ -74,7 +75,7 @@ public class PersonFileRepository implements PersonRepositoryInterface {
                 }
 
             } catch (URISyntaxException e) {
-                logger.info("Erreur lors de la résolution de : " + FILE_NAME);
+                e.printStackTrace();
             }
         }
     }
@@ -98,7 +99,7 @@ public class PersonFileRepository implements PersonRepositoryInterface {
                 e.printStackTrace();
             }
         } else {
-            logger.info("Le fichier " + FILE_NAME
+            System.out.println("Le fichier " + FILE_NAME
                     + " n'a pas été trouvé dans les ressources. Création du fichier avec un exemple de contenu...");
             createExamplePersonFile();
             return loadPersonsFromFile();
@@ -118,17 +119,13 @@ public class PersonFileRepository implements PersonRepositoryInterface {
             // Crée le chemin complet du fichier dans le répertoire de ressources
             Path filePath = Paths.get(resource.toURI()).resolve(FILE_NAME);
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toFile()))) {
-                // Exemple de contenu du fichier
-                writer.write("-1,Eliel");
-                writer.newLine();
-                writer.write("-2,Bellkis");
+            // Crée le fichier sans écrire de contenu
+            Files.createFile(filePath);
 
-                logger.info("Le fichier persons.txt a été créé avec succès à l'emplacement : " + filePath);
-            }
+            System.out.println("Le fichier bookings.txt a été créé avec succès à l'emplacement : " + filePath);
 
         } catch (IOException | URISyntaxException e) {
-            logger.info("Erreur lors de la création du fichier persons.txt");
+            System.err.println("Erreur lors de la création du fichier bookings.txt");
         }
     }
 

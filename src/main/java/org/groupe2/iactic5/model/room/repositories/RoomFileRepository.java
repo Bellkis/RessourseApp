@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -124,17 +125,14 @@ public class RoomFileRepository implements RoomRepositoryInterface {
             // Crée le chemin complet du fichier dans le répertoire de ressources
             Path filePath = Paths.get(resource.toURI()).resolve(FILE_NAME);
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toFile()))) {
-                // Exemple de contenu du fichier
-                writer.write("-1,Chambre -1");
-                writer.newLine();
-                writer.write("-2,Chambre -2");
+            // Crée le fichier sans écrire de contenu
+            Files.createFile(filePath);
 
-                logger.info("Le fichier rooms.txt a été créé avec succès à l'emplacement : " + filePath);
-            }
+            System.out.println("Le fichier bookings.txt a été créé avec succès à l'emplacement : " + filePath);
 
         } catch (IOException | URISyntaxException e) {
-            logger.info("Erreur lors de la création du fichier rooms.txt");
+            System.err.println("Erreur lors de la création du fichier bookings.txt");
         }
     }
+
 }

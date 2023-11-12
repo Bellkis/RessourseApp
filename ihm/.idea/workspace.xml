@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ihm:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="76fe54e5-10b0-4fc8-99f2-71a037b79211" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ihm_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/MainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/actions/BookingActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/actions/GuestsActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/actions/RoomsActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/actions/TimeSlotActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/controllers/BookingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/controllers/GuestsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/controllers/RoomsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/controllers/TimeSlotController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/models/BookingDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/models/PersonDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/models/RoomDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/models/TimeSlotDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/utils/Alerts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/utils/Generators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/views/BookingsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/views/GuestsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/views/HomeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/views/RoomsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group2/iatic/ihm/views/TimeSlotsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images/booking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images/calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images/room.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/MainApplication$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/MainApplication$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/MainApplication$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/MainApplication$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/MainApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/actions/GuestsActions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/controllers/GuestsController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/controllers/RoomsController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/controllers/TimeSlotController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/images/booking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/images/calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/images/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/images/room.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/utils/Alerts.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/utils/Generators.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/views/GuestsView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/views/HomeView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/group2/iatic/ihm/views/RoomsView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2Y2xPAUv5cOVitqQaVbZFvI6Gio" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hedihidouri/IdeaProjects/RessourseApp/ihm/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/group2/iatic/ihm/images" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.ihm [clean,javafx:run]">
+    <configuration name="ihm [clean,javafx:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Maven debug" type="Remote">
+      <module name="ihm" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5000" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5000" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.ihm [clean,javafx:run]" />
+      <item itemvalue="Remote JVM Debug.Maven debug" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76fe54e5-10b0-4fc8-99f2-71a037b79211" name="Changes" comment="" />
+      <created>1699737449622</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699737449622</updated>
+      <workItem from="1699737453352" duration="38025000" />
+      <workItem from="1699819807821" duration="31000" />
+      <workItem from="1699820386890" duration="847000" />
+      <workItem from="1699826046444" duration="3083000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

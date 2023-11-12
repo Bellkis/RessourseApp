@@ -1,3 +1,0 @@
-1,RoomTest 1
-2,RoomTest 2
-3,RoomTest 3
